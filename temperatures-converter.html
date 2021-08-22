@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Temperatures Converter</title>
+</head>
+
+<body style="background-color: #dce3de;">
+    <div class="main">
+        <div class="input">
+            <div class="top">
+                <form>
+                    <div>
+                        <label for="degrees">Degrees</label>
+                        <input class="masukan" type="number" onclick="Pres()" id="degrees" name="degrees">
+                    </div>
+                    <div>
+                        <label for="from">Convert</label>
+                        <select name="from" id="from">
+                            <option value="f">Fahrenheit</option>
+                            <option value="c">Celsius</option>
+                            <option value="k">Kelvin</option>
+                            <option value="r">Reamur</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="to">To</label>
+                        <select name="to" id="to">
+                            <option value="f">Fahrenheit</option>
+                            <option value="c">Celsius</option>
+                            <option value="k">Kelvin</option>
+                            <option value="r">Reamur</option>
+                        </select>
+                    </div>
+                    <button class="buttonConvert" id="convert" onclick="Submit(event)" type="button">Convert</button>
+                </form>
+            </div>
+            <div class="bottom">
+                <div class="result-label">Result</div>
+                <div class="result" id="result"><b>Result</b></div>
+            </div>
+            <div class="bottom">
+                <div class="result-label">Hex</div>
+                <div class="result" id="angka"><b>#dce3de</b></div>
+            </div>
+            <div class="color">
+                <div class="color-label">Color Picker</div>
+            </div>
+            <div class="change">
+                <input class="colorPicker" type="color" id="pageColor">
+                <button id="ChangeColor" class="buttonBackground" type="button" onclick="ChangeColor()">Change
+                    Background</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function ChangeColor() {
+            var x;
+            x = document.getElementById("pageColor").value;
+            document.body.style.backgroundColor = x;
+            document.getElementById("angka").innerHTML = x;
+        }
+    </script>
+    <script type="text/javascript" defer src="converter.js"></script>
+</body>
+
+</html>

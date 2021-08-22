@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.input {
+    background-color: #fff;
+    width: auto;
+    height: auto;
+    padding: 25px 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+}
+
+.bottom {
+    margin: 20px 10px;
+}
+
+form div {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+form div select {
+    cursor: pointer;
+}
+
+.masukan {
+    font-size: 15px;
+    font-weight: 300;
+    padding: 12px 20px;
+    border: 2px solid #0e83e9;
+    border-radius: 5px;
+    width: 200px;
+    background-color: white;
+    margin-top: 10px;
+    display: block;
+}
+
+select {
+    font-size: 15px;
+    font-weight: 300;
+    padding: 12px 20px;
+    border: 2px solid #0e83e9;
+    border-radius: 5px;
+    width: 200px;
+    background-color: white;
+    margin-top: 10px;
+    display: block;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+}
+
+label,
+.result-label,
+.formula-label,
+.color-label {
+    font-size: 15px;
+    color: #0e83e9;
+    display: block;
+}
+
+.buttonConvert {
+    background-color: #0e83e9;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 32px;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin: 28px 10px 0;
+    height: 50px;
+    transition: 0.5s;
+}
+
+.buttonConvert:hover {
+    transform: translateY(-5px);
+}
+
+.result,
+.formula {
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.change {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 10px;
+    margin-left: 8px;
+    align-items: center;
+}
+
+.colorPicker {
+    width: 90px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: unset;
+}
+
+.buttonBackground {
+    background-color: #0e83e9;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 32px;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    height: 50px;
+    transition: 0.5s;
+    margin-left: 30px;
+}
+
+.buttonBackground:hover {
+    transform: translateY(-5px);
+}
+
+.color {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 90px;
+}
+
+@media (max-width: 992px) {
+    .main {
+        padding: 0 50px;
+    }
+
+    .buttonBackground {
+        font-size: 12px;
+    }
+
+    .buttonConvert {
+        font-size: 14px;
+    }
+
+    .result,
+    .formula {
+        font-size: 20px;
+    }
+
+    label,
+    .result-label,
+    .formula-label,
+    .color-label {
+        padding-top: 10px;
+    }
+
+    .bottom {
+        margin: 5px 10px;
+    }
+
+    select,
+    .masukan {
+        font-size: 15px;
+    }
+
+    option {
+        font-size: 13px;
+    }
+
+}

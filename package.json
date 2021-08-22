@@ -1,0 +1,14 @@
+{
+  "name": "temperatures-converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "converter.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
