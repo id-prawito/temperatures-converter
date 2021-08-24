@@ -1,184 +1,126 @@
 // const btn = document.getElementById("convert"); //variabel button
-// const degree = document.getElementById("degrees"); // variabel nilai suhu
-// const temperature = document.getElementById("from"); // variabel jenis suhu dari "form"
-// const convertTo = document.getElementById("to"); // variabel jenis suhu dari "to"
-// let result = document.getElementById("result"); // variabel daripada hasil
 
 // Pendeklarasian Variable saya comment karena di unit test nanti akan muncul error document not defined, dan akhirnya tidak saya buat variabel, tapi hal ini mengakibatkan
 // syntaxnya banyak.
 
 function Pres() {
-    document.getElementById("degrees").placeholder = "";
-    document.getElementById("degrees").style.border = "2px solid gray";
+    const degree = document.getElementById("degrees"); // variabel nilai suhu
+    degree.placeholder = "";
+    degree.style.border = "2px solid gray";
 }
 
 function Submit(event) {
+    const degree = document.getElementById("degrees");
+    const temperature = document.getElementById("from"); // variabel jenis suhu dari "form"
+    const convertTo = document.getElementById("to"); // variabel jenis suhu dari "to"
+    let result = document.getElementById("result"); // variabel daripada hasil
+
     event.preventDefault();
-    if (document.getElementById("degrees").value === "") {
-        setError(document.getElementById("degrees"));
+    if (degree.value === "") {
+        setError(degree);
     } else {
-        if (document.getElementById("from").value === "f") {
-            if (document.getElementById("to").value === "c") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "°F − 32) × 5/9 = " +
-                        Math.floor(
-                            convert.fahrenheitToCelsius(
-                                document.getElementById("degrees").value
-                            )
-                        ) +
-                        "°C";
-            } else if (document.getElementById("to").value === "k") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "°F − 32) × 5/9 + 273.15 = " +
-                        convert
-                            .fahrenheitToKelvin(
-                                document.getElementById("degrees").value
-                            )
-                            .toFixed(2) +
-                        "K";
-            } else if (document.getElementById("to").value === "r") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "°F − 32) × 4/9 = " +
-                        Math.floor(
-                            convert.fahrenheitToReamur(
-                                document.getElementById("degrees").value
-                            )
-                        ) +
-                        "°Ré";
+        if (temperature.value === "f") {
+            if (convertTo.value === "c") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "°F − 32) × 5/9 = " +
+                    Math.floor(convert.fahrenheitToCelsius(degree.value)) +
+                    "°C";
+            } else if (convertTo.value === "k") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "°F − 32) × 5/9 + 273.15 = " +
+                    convert.fahrenheitToKelvin(degree.value).toFixed(2) +
+                    "K";
+            } else if (convertTo.value === "r") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "°F − 32) × 4/9 = " +
+                    Math.floor(convert.fahrenheitToReamur(degree.value)) +
+                    "°Ré";
             } else {
-                selectOption(document.getElementById("to"), "c");
+                selectOption(convertTo, "c");
                 document.getElementById("convert").click();
             }
-        } else if (document.getElementById("from").value === "c") {
-            if (document.getElementById("to").value === "f") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "°C × 9/5) + 32 = " +
-                        Math.floor(
-                            convert.celsiusToFahrenheit(
-                                document.getElementById("degrees").value
-                            )
-                        ) +
-                        "°F";
-            } else if (document.getElementById("to").value === "k") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "°C + 273.15) = " +
-                        convert
-                            .celsiusToKelvin(
-                                document.getElementById("degrees").value
-                            )
-                            .toFixed(2) +
-                        "K";
-            } else if (document.getElementById("to").value === "r") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "°C x 4/5) = " +
-                        Math.round(
-                            convert.celsiusToReamur(
-                                document.getElementById("degrees").value
-                            )
-                        ) +
-                        "°R";
+        } else if (temperature.value === "c") {
+            if (convertTo.value === "f") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "°C × 9/5) + 32 = " +
+                    Math.floor(convert.celsiusToFahrenheit(degree.value)) +
+                    "°F";
+            } else if (convertTo.value === "k") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "°C + 273.15) = " +
+                    convert.celsiusToKelvin(degree.value).toFixed(2) +
+                    "K";
+            } else if (convertTo.value === "r") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "°C x 4/5) = " +
+                    Math.round(convert.celsiusToReamur(degree.value)) +
+                    "°R";
             } else {
-                selectOption(document.getElementById("to"), "f");
+                selectOption(convertTo, "f");
                 document.getElementById("convert").click();
             }
-        } else if (document.getElementById("from").value === "k") {
-            if (document.getElementById("to").value === "f") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "K − 273.15) × 9/5 + 32 = " +
-                        convert
-                            .kelvinToFahrenheit(
-                                document.getElementById("degrees").value
-                            )
-                            .toFixed(2) +
-                        "°F";
-            } else if (document.getElementById("to").value === "c") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "K − 273.15) = " +
-                        convert
-                            .kelvinToCelsius(
-                                document.getElementById("degrees").value
-                            )
-                            .toFixed(2) +
-                        "°C";
-            } else if (document.getElementById("to").value === "r") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "K − 273.15) × 4/5 = " +
-                        convert
-                            .kelvinToReamur(
-                                document.getElementById("degrees").value
-                            )
-                            .toFixed(2) +
-                        "°R";
+        } else if (temperature.value === "k") {
+            if (convertTo.value === "f") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "K − 273.15) × 9/5 + 32 = " +
+                    convert.kelvinToFahrenheit(degree.value).toFixed(2) +
+                    "°F";
+            } else if (convertTo.value === "c") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "K − 273.15) = " +
+                    convert.kelvinToCelsius(degree.value).toFixed(2) +
+                    "°C";
+            } else if (convertTo.value === "r") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "K − 273.15) × 4/5 = " +
+                    convert.kelvinToReamur(degree.value).toFixed(2) +
+                    "°R";
             } else {
-                selectOption(document.getElementById("to"), "f");
+                selectOption(convertTo, "f");
                 document.getElementById("convert").click();
             }
         } else {
-            if (document.getElementById("to").value === "f") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "°Ré * (9/4) + 32  = " +
-                        Math.round(
-                            convert.reamurToFahrenheit(
-                                document.getElementById("degrees").value
-                            )
-                        ) +
-                        "°F";
-            } else if (document.getElementById("to").value === "c") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "°Ré × 5/4) = " +
-                        Math.round(
-                            convert.reamurToCelsius(
-                                document.getElementById("degrees").value
-                            )
-                        ) +
-                        "°C";
-            } else if (document.getElementById("to").value === "k") {
-                document.getElementById("result").innerText =
-                    document.getElementById("result").textContent =
-                        "(" +
-                        document.getElementById("degrees").value +
-                        "°Ré * (5/4) + 273.15  = " +
-                        convert
-                            .reamurToKelvin(
-                                document.getElementById("degrees").value
-                            )
-                            .toFixed(2) +
-                        "K";
+            if (convertTo.value === "f") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "°Ré * (9/4) + 32  = " +
+                    Math.round(convert.reamurToFahrenheit(degree.value)) +
+                    "°F";
+            } else if (convertTo.value === "c") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "°Ré × 5/4) = " +
+                    Math.round(convert.reamurToCelsius(degree.value)) +
+                    "°C";
+            } else if (convertTo.value === "k") {
+                result.innerText = result.textContent =
+                    "(" +
+                    degree.value +
+                    "°Ré * (5/4) + 273.15  = " +
+                    convert.reamurToKelvin(degree.value).toFixed(2) +
+                    "K";
             } else {
-                selectOption(document.getElementById("to"), "c");
+                selectOption(convertTo, "c");
                 document.getElementById("convert").click();
             }
         }
